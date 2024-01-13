@@ -3,17 +3,33 @@ plugins {
 }
 
 group = 'edu.effectuss'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
     testImplementation platform('org.junit:junit-bom:5.9.1')
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.3'
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    archiveFileName = 'minesweeper.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'Main-Class': 'edu.effectuss.Main'
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
