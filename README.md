@@ -36,3 +36,6 @@ This project is an implementation of the classic Minesweeper game using the Mode
 5. Enjoy the game!
 
 ### Demonstration
+
+https://github.com/Effectuss/Minesweeper-game/assets/111355453/b703f11c-fd90-4be7-b174-319b44222589
+
